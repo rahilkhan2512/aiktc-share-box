@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.jpg') }}" sizes="20x20">
+    <title>{{params['title']}}</title>
+  </head>
+  <body>
+    <div class="container col-md-4 my-2">
+ <form action="/register" id="validateform" method="post" onsubmit="formcheck()">
+  
+  <div class="form-group">
+    <label for="fname">First Name</label>
+    <input type="form-text" class="form-control" id="fname" name="fname" placeholder="Enter your first name here" required>
+  </div>
+  <div class="form-group">
+    <label for="lname">Last Name</label>
+    <input type="form-text" class="form-control" name="lname" id="lname" placeholder="Enter your last name here" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter your email" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Enter a Password" required>
+  </div>
+  <div class="form-group" id="passwordconfirmation">
+    <label for="password2">Re-Enter your password</label>
+    <input type="password" name="password2" class="form-control" id="password2" placeholder="Enter your password again" onkeyup='check()'; required>
+    <strong id='message'></strong>
+  </div>
+  <span class="form-text text-muted my-1">Already Have account <a href="/">Login here</a></span>
+  <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
+</div>
+    <script>
+    var check = function() {
+      if (document.getElementById('password').value ==
+        document.getElementById('password2').value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = '';
+      } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Password does not Match';
+      }
+    }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
